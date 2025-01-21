@@ -12,9 +12,9 @@ response = requests.get(weather_api)
 data = response.json()
 
 
-
+#Read and write JSON files using the 'with open()' statement and the 'json' module.
 with open("data/json/weather_api.json", mode = "w") as file:
-    # convert list oject to json
+# convert list oject to json
     json.dump(data,file, indent = 4)
 
    
@@ -22,7 +22,7 @@ with open("data/json/weather_api.json", mode = "w") as file:
 
 df = pd.DataFrame(data)
 
-#create new dict containing time, temperature,relative_humidity,
+#create new dict containing time, temperature,relative_humidity,precipitation,surface_pressure
 hourly_data = data["hourly"]
 
 new_dict = {
