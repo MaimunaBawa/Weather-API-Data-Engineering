@@ -5,7 +5,9 @@ import pandas as pd
 # requesting  data for Minais Gerais (Lat:-21.72, long: -45.39) from 01-01-2022 to 12-31-2023
 # data being pulled are temperture, relative humidity, precipitation , & surface pressure.
 
-weather_api = "https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.47&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure"
+URL="https://historical-forecast-api.open-meteo.com/v1/forecast?latitude=-21.47&longitude=-45.39&start_date=2022-01-01&end_date=2023-12-31&hourly=temperature_2m,relative_humidity_2m,precipitation,surface_pressure"
+
+weather_api = URL
 response = requests.get(weather_api)
 data = response.json()
 
@@ -39,7 +41,6 @@ df.to_csv("data/csv/new.csv",index = False)
 
 #Go through the data and find null
 null_counts = df.isnull().sum()
-print(df.columns)
 
 
 
@@ -47,4 +48,5 @@ print(df.columns)
 
 
 
-          
+
+           
